@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Our Memories ❤️</title>
+
+<style>
+
+body{
+background:#111;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+padding:20px;
+}
+
+img{
+width:100%;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script>
+
+var password = prompt("Enter our secret password ❤️");
+
+if(password !== "ourstory"){
+document.body.innerHTML = "Access denied";
+}
+
+</script>
+
+<h1>Our Timeline ❤️</h1>
+
+<h2>January 2025</h2>
+
+<div class="gallery">
+
+<img src="https://picsum.photos/300">
+<img src="https://picsum.photos/301">
+<img src="https://picsum.photos/302">
+
+</div>
+
+</body>
+</html>
