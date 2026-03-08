@@ -73,6 +73,7 @@ link.dataset.pswpWidth = "2000";
 link.dataset.pswpHeight = "1500";
 
 const img = document.createElement("img");
+img.loading = "lazy";
 img.src = `https://drive.google.com/thumbnail?id=${file.id}&sz=w800`;
 img.onclick = (e) => {
 e.preventDefault();
@@ -93,6 +94,7 @@ container.style.position="relative";
 container.style.cursor="pointer";
 
 const thumb = document.createElement("img");
+thumb.loading = "lazy";
 thumb.src = `https://drive.google.com/thumbnail?id=${file.id}&sz=w1000`;
 thumb.style.width="100%";
 thumb.style.borderRadius="10px";
