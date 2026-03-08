@@ -50,9 +50,18 @@ margin-top:60px;
 }
 
 .year h2{
-color:#888;
-font-weight:400;
-margin-top:0;
+font-size:14px;
+font-weight:600;
+letter-spacing:2px;
+
+color:#ff758f;
+
+margin:40px auto 10px auto;
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
 }
 
 /* BUTTON GRID */
