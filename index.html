@@ -71,19 +71,15 @@ gallery.appendChild(img);
 
 if(file.mimeType.includes("video")){
 
-const video = document.createElement("video");
+const iframe = document.createElement("iframe");
 
-video.controls = true;
-video.style.width = "100%";
-video.style.borderRadius = "10px";
+iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
+iframe.width = "100%";
+iframe.height = "300";
+iframe.style.border = "none";
+iframe.style.borderRadius = "10px";
 
-const source = document.createElement("source");
-source.src = `https://drive.google.com/uc?id=${file.id}`;
-source.type = file.mimeType;
-
-video.appendChild(source);
-
-gallery.appendChild(video);
+gallery.appendChild(iframe);
 
 }
 
