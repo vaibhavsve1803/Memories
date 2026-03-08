@@ -32,6 +32,10 @@ padding-top:40px;
 
 /* YEAR SECTIONS */
 
+.year:first-of-type{
+margin-top:20px;
+}
+
 .year{
 margin-top:60px;
 }
