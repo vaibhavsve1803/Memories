@@ -255,3 +255,6 @@ border-radius:10px;
 ::-webkit-scrollbar-thumb:hover{
 background:#ff758f;
 }
+html{
+scroll-behavior:smooth;
+}
