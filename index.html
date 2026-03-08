@@ -51,7 +51,7 @@ document.body.innerHTML = "Access denied";
 const apiKey = "AIzaSyChyZCyBdO9nR5bKNRj4_yKCG-qX8EHdvQ";
 const folderId = "10w0X1ZyI6wnwB-_6nWTrtTHmHYk2qW0G";
 
-fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}&fields=files(id,name,mimeType)`)
+fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents+and+trashed=false&key=${apiKey}&fields=files(id,name,mimeType)&pageSize=1000`)
 
 .then(res => res.json())
 
@@ -65,7 +65,7 @@ if(file.mimeType.includes("image")){
 
 const img = document.createElement("img");
 
-img.src = `https://drive.google.com/uc?id=${file.id}`;
+img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
 
 gallery.appendChild(img);
 
