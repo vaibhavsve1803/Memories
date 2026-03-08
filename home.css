@@ -84,7 +84,7 @@ transform:translateY(-2px);
 /* FOOTER TIMER */
 
 .footer{
-position:fixed;
+position:sticky;
 bottom:0;
 width:100%;
 
@@ -96,6 +96,7 @@ backdrop-filter: blur(8px);
 background:#111;
 padding:14px 0;
 border-top:2px solid #ff4d6d;
+box-shadow:0 -10px 30px rgba(0,0,0,.5);
 }
 
 /* TIMER BOXES */
