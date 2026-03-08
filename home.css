@@ -102,9 +102,17 @@ min-width:60px;
 }
 
 .timeNumber{
-font-size:20px;
+font-size:22px;
 font-weight:600;
 color:#ff4d6d;
+
+transition:transform .4s;
+}
+
+/* flip animation */
+
+.flip{
+transform:rotateX(360deg);
 }
 
 .timeLabel{
