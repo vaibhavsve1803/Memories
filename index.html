@@ -13,6 +13,12 @@
 
 <body>
 
+<div class="header">
+Our Memories ❤️
+</div>
+
+<div class="container">
+
 <script>
   
 var password = prompt("Enter our secret password ❤️");
@@ -30,6 +36,8 @@ document.body.innerHTML = "Access denied";
 
 <h2>2024</h2>
 
+<div class="months">
+
 <a href="jul2024.html"><button>July</button></a>
 <a href="aug2024.html"><button>August</button></a>
 <a href="sep2024.html"><button>September</button></a>
@@ -39,9 +47,13 @@ document.body.innerHTML = "Access denied";
 
 </div>
 
+</div>
+
 <div class="year">
 
 <h2>2025</h2>
+
+<div class="months">
 
 <a href="jan2025.html"><button>January</button></a>
 <a href="feb2025.html"><button>February</button></a>
@@ -58,9 +70,13 @@ document.body.innerHTML = "Access denied";
 
 </div>
 
+</div>
+
 <div class="year">
 
 <h2>2026</h2>
+
+<div class="months">
 
 <a href="jan2026.html"><button>January</button></a>
 <a href="feb2026.html"><button>February</button></a>
@@ -68,11 +84,13 @@ document.body.innerHTML = "Access denied";
 
 </div>
 
+</div>
+
 <script>
 
 const startDate = new Date("2024-06-30");
 
-function updateLoveTimer(){
+function updateTimer(){
 
 const now = new Date();
 
@@ -91,14 +109,34 @@ years--;
 months += 12;
 }
 
-document.getElementById("loveTimer").innerHTML =
-`Since 30 June 2024 • ${years}y ${months}m ${days}d ❤️`;
+document.getElementById("years").innerText = years;
+document.getElementById("months").innerText = months;
+document.getElementById("days").innerText = days;
 
 }
 
-updateLoveTimer();
+updateTimer();
 
 </script>
+
+<div class="footer">
+
+<div class="timeBox">
+<div id="years" class="timeNumber">0</div>
+<div class="timeLabel">Years</div>
+</div>
+
+<div class="timeBox">
+<div id="months" class="timeNumber">0</div>
+<div class="timeLabel">Months</div>
+</div>
+
+<div class="timeBox">
+<div id="days" class="timeNumber">0</div>
+<div class="timeLabel">Days</div>
+</div>
+
+</div>
 
 </body>
 
