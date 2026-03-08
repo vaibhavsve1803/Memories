@@ -21,7 +21,7 @@ align-items:center;
 
 height:80px;
 
-background:#ff4d6d;
+background:linear-gradient(180deg,#ff5c7a,#ff4d6d);
 
 border-top:2px solid #000;
 border-bottom:2px solid #000;
