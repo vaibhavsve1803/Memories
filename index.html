@@ -1,8 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <title>Our Memories ❤️</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#111;
+color:white;
+text-align:center;
+}
+
+#gallery{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:15px;
+padding:20px;
+}
+
+img{
+width:100%;
+border-radius:10px;
+}
+
+</style>
 
 </head>
 
@@ -17,7 +41,7 @@ document.body.innerHTML = "Access denied";
 }
 
 </script>
-  
+
 <h2>July 2024</h2>
 
 <div id="gallery"></div>
@@ -43,10 +67,6 @@ const img = document.createElement("img");
 
 img.src = `https://drive.google.com/uc?id=${file.id}`;
 
-img.style.width = "250px";
-img.style.margin = "10px";
-img.style.borderRadius = "10px";
-
 gallery.appendChild(img);
 
 }
@@ -58,4 +78,5 @@ gallery.appendChild(img);
 </script>
 
 </body>
+
 </html>
