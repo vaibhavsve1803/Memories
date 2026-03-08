@@ -5,28 +5,7 @@
 
 <title>Our Memories ❤️</title>
 <link rel="stylesheet" href="style.css">
-<style>
-
-body{
-font-family:Arial;
-background:#111;
-color:white;
-text-align:center;
-}
-
-#gallery{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:15px;
-padding:20px;
-}
-
-img{
-width:100%;
-border-radius:10px;
-}
-
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
@@ -161,78 +140,7 @@ cursor:pointer;">✕</button>
 
 </div>
 
-<script>
-
-let currentIndex = 0;
-
-function openMedia(id){
-
-currentIndex = mediaItems.findIndex(f => f.id === id);
-showMedia();
-
-document.getElementById("mediaViewer").style.display="flex";
-
-}
-
-function showMedia(){
-
-const file = mediaItems[currentIndex];
-const container = document.getElementById("mediaContent");
-
-container.innerHTML="";
-
-if(file.mimeType.includes("image")){
-
-const img = document.createElement("img");
-img.src = `https://drive.google.com/thumbnail?id=${file.id}&sz=w2000`;
-img.style.maxHeight="90vh";
-img.style.maxWidth="90vw";
-img.style.objectFit="contain";
-
-container.appendChild(img);
-
-}
-
-if(file.mimeType.includes("video")){
-
-const iframe = document.createElement("iframe");
-iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
-iframe.style.width="80vw";
-iframe.style.height="80vh";
-iframe.style.border="none";
-
-container.appendChild(iframe);
-
-}
-
-}
-
-function nextMedia(){
-currentIndex=(currentIndex+1)%mediaItems.length;
-showMedia();
-}
-
-function prevMedia(){
-currentIndex=(currentIndex-1+mediaItems.length)%mediaItems.length;
-showMedia();
-}
-
-function closeMedia(){
-document.getElementById("mediaViewer").style.display="none";
-}
-document.addEventListener("keydown", e => {
-
-if(document.getElementById("mediaViewer").style.display === "flex"){
-
-if(e.key === "ArrowRight") nextMedia();
-if(e.key === "ArrowLeft") prevMedia();
-if(e.key === "Escape") closeMedia();
-
-}
-
-});
-
-</script>
+<script src="gallery.js"></script>
 
 </body>
 
