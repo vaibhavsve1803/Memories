@@ -71,18 +71,35 @@ gallery.appendChild(img);
 
 if(file.mimeType.includes("video")){
 
-const iframe = document.createElement("iframe");
+const container = document.createElement("div");
+container.style.position = "relative";
+container.style.cursor = "pointer";
 
-iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
-iframe.width = "100%";
-iframe.height = "300";
-iframe.style.border = "none";
-iframe.style.borderRadius = "10px";
+const thumb = document.createElement("img");
+thumb.src = "https://cdn-icons-png.flaticon.com/512/727/727245.png";
+thumb.style.width = "100%";
+thumb.style.opacity = "0.8";
 
-gallery.appendChild(iframe);
+const play = document.createElement("div");
+play.innerHTML = "▶";
+play.style.position = "absolute";
+play.style.top = "50%";
+play.style.left = "50%";
+play.style.transform = "translate(-50%,-50%)";
+play.style.fontSize = "40px";
+play.style.color = "white";
+
+container.appendChild(thumb);
+container.appendChild(play);
+
+container.onclick = () => {
+window.open(`https://drive.google.com/file/d/${file.id}/view`);
+};
+
+gallery.appendChild(container);
 
 }
-
+  
 });
 
 });
