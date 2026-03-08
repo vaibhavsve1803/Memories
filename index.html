@@ -102,37 +102,72 @@ document.body.innerHTML = "Access denied";
 <div class="timeLabel">Days</div>
 </div>
 
+<div class="timeBox">
+<div id="hours" class="timeNumber">0</div>
+<div class="timeLabel">Hours</div>
+</div>
+
+<div class="timeBox">
+<div id="minutes" class="timeNumber">0</div>
+<div class="timeLabel">Minutes</div>
+</div>
+
+<div class="timeBox">
+<div id="seconds" class="timeNumber">0</div>
+<div class="timeLabel">Seconds</div>
+</div>
+
 </div>
 
 <script>
 
-const startDate = new Date("2024-06-30");
+const startDate = new Date("2024-06-30T00:00:00");
 
 function updateTimer(){
 
 const now = new Date();
+let diff = now - startDate;
 
-let years = now.getFullYear() - startDate.getFullYear();
-let months = now.getMonth() - startDate.getMonth();
-let days = now.getDate() - startDate.getDate();
+const seconds = Math.floor(diff / 1000) % 60;
+const minutes = Math.floor(diff / (1000 * 60)) % 60;
+const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
 
-if(days < 0){
-months--;
-const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-days += prevMonth.getDate();
+let daysTotal = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+const years = Math.floor(daysTotal / 365);
+daysTotal = daysTotal % 365;
+
+const months = Math.floor(daysTotal / 30);
+const days = daysTotal % 30;
+
+updateBox("years", years);
+updateBox("months", months);
+updateBox("days", days);
+updateBox("hours", hours);
+updateBox("minutes", minutes);
+updateBox("seconds", seconds);
+
 }
 
-if(months < 0){
-years--;
-months += 12;
+function updateBox(id,value){
+
+const el = document.getElementById(id);
+
+if(el.innerText != value){
+
+el.classList.remove("flip");
+
+void el.offsetWidth;
+
+el.classList.add("flip");
+
+el.innerText = value;
+
 }
 
-document.getElementById("years").innerText = years;
-document.getElementById("months").innerText = months;
-document.getElementById("days").innerText = days;
-
 }
 
+setInterval(updateTimer,1000);
 updateTimer();
 
 </script>
