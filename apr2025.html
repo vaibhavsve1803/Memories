@@ -174,8 +174,6 @@ cursor:pointer;">✕</button>
 <script>
 
 let currentIndex = 0;
-let touchStartX = 0;
-let touchEndX = 0;
 
 function openMedia(id){
 
@@ -190,17 +188,6 @@ function showMedia(){
 
 const file = mediaItems[currentIndex];
 const container = document.getElementById("mediaContent");
-container.addEventListener("touchstart", e => {
-touchStartX = e.changedTouches[0].screenX;
-});
-
-container.addEventListener("touchend", e => {
-
-touchEndX = e.changedTouches[0].screenX;
-
-handleSwipe();
-
-});
 
 container.innerHTML="";
 
@@ -250,20 +237,6 @@ if(document.getElementById("mediaViewer").style.display === "flex"){
 if(e.key === "ArrowRight") nextMedia();
 if(e.key === "ArrowLeft") prevMedia();
 if(e.key === "Escape") closeMedia();
-
-}
-
-function handleSwipe(){
-
-const swipeDistance = touchEndX - touchStartX;
-
-if(Math.abs(swipeDistance) < 50) return;
-
-if(swipeDistance < 0){
-nextMedia();
-}else{
-prevMedia();
-}
 
 }
 
