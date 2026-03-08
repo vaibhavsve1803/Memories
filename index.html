@@ -122,51 +122,6 @@ gallery.appendChild(container);
 
 </script>
 
-<div id="videoModal" style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:999;
-">
-
-<iframe id="videoFrame"
-width="80%"
-height="80%"
-style="border:none;border-radius:10px;"></iframe>
-
-<div onclick="closeVideo()" style="
-position:absolute;
-top:20px;
-right:30px;
-font-size:40px;
-color:white;
-cursor:pointer;">
-✕
-</div>
-
-</div>
-
-<script>
-
-function openVideo(id){
-document.getElementById("videoModal").style.display="flex";
-document.getElementById("videoFrame").src =
-`https://drive.google.com/file/d/${id}/preview`;
-}
-
-function closeVideo(){
-document.getElementById("videoModal").style.display="none";
-document.getElementById("videoFrame").src="";
-}
-
-</script>
-
 <div id="mediaViewer" style="
 position:fixed;
 top:0;
@@ -239,6 +194,8 @@ if(file.mimeType.includes("image")){
 const img = document.createElement("img");
 img.src = `https://drive.google.com/thumbnail?id=${file.id}&sz=w2000`;
 img.style.maxHeight="90vh";
+img.style.maxWidth="90vw";
+img.style.objectFit="contain";
 
 container.appendChild(img);
 
@@ -271,6 +228,17 @@ showMedia();
 function closeMedia(){
 document.getElementById("mediaViewer").style.display="none";
 }
+document.addEventListener("keydown", e => {
+
+if(document.getElementById("mediaViewer").style.display === "flex"){
+
+if(e.key === "ArrowRight") nextMedia();
+if(e.key === "ArrowLeft") prevMedia();
+if(e.key === "Escape") closeMedia();
+
+}
+
+});
 
 </script>
 
