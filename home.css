@@ -21,10 +21,11 @@ align-items:center;
 
 height:80px;
 
-background:linear-gradient(180deg,#ff5c7a,#ff4d6d);
+background:#ff4d6d;
 
-border-top:2px solid #000;
-border-bottom:2px solid #000;
+box-shadow:
+inset 0 3px 0 black,
+inset 0 -3px 0 black;
 
 font-size:26px;
 font-weight:600;
