@@ -4,44 +4,14 @@
 <head>
 
 <title>Our Memories ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   
 <link rel="stylesheet" href="home.css">
 
 </head>
 
 <body>
-
-<script>
-
-const startDate = new Date("2024-06-30");
-
-function updateLoveTimer(){
-
-const now = new Date();
-
-let years = now.getFullYear() - startDate.getFullYear();
-let months = now.getMonth() - startDate.getMonth();
-let days = now.getDate() - startDate.getDate();
-
-if(days < 0){
-months--;
-const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-days += prevMonth.getDate();
-}
-
-if(months < 0){
-years--;
-months += 12;
-}
-
-document.getElementById("loveTimer").innerHTML =
-`Blessed since ${years} years ${months} months ${days} days ❤️`;
-
-}
-
-updateLoveTimer();
-
-</script>
 
 <script>
   
@@ -97,6 +67,38 @@ document.body.innerHTML = "Access denied";
 <a href="mar2026.html"><button>March</button></a>
 
 </div>
+
+<script>
+
+const startDate = new Date("2024-06-30");
+
+function updateLoveTimer(){
+
+const now = new Date();
+
+let years = now.getFullYear() - startDate.getFullYear();
+let months = now.getMonth() - startDate.getMonth();
+let days = now.getDate() - startDate.getDate();
+
+if(days < 0){
+months--;
+const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+days += prevMonth.getDate();
+}
+
+if(months < 0){
+years--;
+months += 12;
+}
+
+document.getElementById("loveTimer").innerHTML =
+`Blessed since ${years} years ${months} months ${days} days ❤️`;
+
+}
+
+updateLoveTimer();
+
+</script>
 
 </body>
 
