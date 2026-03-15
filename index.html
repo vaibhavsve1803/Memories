@@ -22,12 +22,34 @@ Our Timeline
 <div class="container">
 
 <script>
-  
-var password = prompt("Enter our secret password ❤️");
 
-if(password !== "doggocutiepie"){
+const PASSWORD_HASH = "802127e3a21b664f052056754f54c3e61c70ab8bc7588a8910cc3bb291354ee1";
+
+async function verifyPassword() {
+
+let saved = localStorage.getItem("auth");
+
+if(saved === PASSWORD_HASH) return;
+
+let input = prompt("Enter password");
+
+const encoder = new TextEncoder();
+const data = encoder.encode(input);
+
+const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+const hashArray = Array.from(new Uint8Array(hashBuffer));
+const hashHex = hashArray.map(b => b.toString(16).padStart(2,"0")).join("");
+
+if(hashHex === PASSWORD_HASH) {
+localStorage.setItem("auth", PASSWORD_HASH);
+}
+else {
 document.body.innerHTML = "Access denied";
 }
+
+}
+
+verifyPassword();
 
 </script>
 
